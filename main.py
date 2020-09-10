@@ -98,6 +98,8 @@ def remove_walls(current, next):
 
 
 grid_cells = [Cell(col, row) for row in range(rows) for col in range(cols)]
+
+
 current_cell = grid_cells[0]
 stack = []
 
@@ -112,6 +114,9 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
                 restart(grid_cells)
+            if event.key == pygame.K_k:
+                for elem in grid_cells:
+                    print(elem.x, elem.y, elem.walls, elem.visited)
 
     [cell.draw() for cell in grid_cells]
 
@@ -133,3 +138,4 @@ while True:
         current_cell = stack.pop()
     pygame.display.flip()
     clock.tick(FPS)
+
